@@ -400,3 +400,37 @@
 //     int choice=read_integer_in_range("\nEnter option: ",1,2);
 //     printf("%d", choice);
 // }
+
+
+// void main()
+// {
+//     struct MainDish md = {0, 0, 0, 0, 0};
+//     struct Sides sd = {0, 0, 0, 0, 0};
+//     struct Drinks dk = {0, 0, 0, 0, 0, 0};
+//     struct Burger B = {0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    
+//     float mdprices[] = {15.0, 14.50, 13.00, 22.0, 12.0};
+//     float sdprices[] = {8.00, 6.00, 3.00, 5.00, 2.50};
+//     float dkprices[] = {3.00, 0, 2.50};
+//     float Bprices[] = {1.00, 1.50, 2.50, 1.00, 0.5, 0.0};
+
+//     MaindishAmt(&md, mdprices);
+//     SideDishAmt(&sd, sdprices);
+//     DrinkAmt(&dk, dkprices);
+//     BAmt(&B, Bprices);
+    
+
+//   // Printing the amounts for demonstration
+//     printf("\nAmounts: %d %d %d %d %d", md.amt1, md.amt2, md.amt3, md.amt4, md.amt5);
+//     printf("\nAmounts: %d %d %d %d %d", sd.amt1, sd.amt2, sd.amt3, sd.amt4, sd.amt5);
+//     printf("\nAmounts: %d %d %d %d %d %d", dk.amt1, dk.amt2, dk.amt3, dk.amt4, dk.amt5,dk.amt6);
+//     printf("\nAmounts: %d %d %d, %d %d %d, %d %d %d, %d %d %d", B.BeefAmt, B.ChknAmt, B.FishAmt, B.BEA1, B.BEA2, B.BEA3, B.CKE1, B.CKE2, B.CKE3, B.FEA1, B.FEA2, B.FEA3);
+
+//     // Print the total cost stored in the struct for demonstration
+//     printf("\nTotal cost of the main dish: $%.2f\n", md.mdtotal);
+//     printf("\nTotal cost of the side dish: $%.2f\n", sd.sdtotal);
+//     printf("\nTotal cost of the drinks: $%.2f\n",dk.dtotal);
+//     printf("\nTotal cost of the burger: $%.2f\n", B.Btotal);
+
+//     MenuTotal(&md, &sd, &dk, &B);
+// }

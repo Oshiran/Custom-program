@@ -3,7 +3,6 @@
 #include <string.h>
 #include "structs.c"
 
-
 void main ()
 {
     struct MainDish md = {0, 0, 0, 0, 0};
@@ -18,19 +17,15 @@ void main ()
 
     int option1, option2;
     bool status=true, status2=true;;
-    while (status)
-    {
+    while (status){
         text(1);
         option1 = read_integer_in_range ("\nOption: ",1,2);
-        switch (option1)
-        {
+        switch (option1){
         case 1:
-            while (status2)
-            {
+            while (status2){
                 text(2);
                 option2 = read_integer_in_range ("\nOption: ",1,5);
-                switch (option2)
-                {
+                switch (option2){
                 case 1:
                     MaindishAmt(&md, mdprices);
                     break;

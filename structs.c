@@ -3,7 +3,7 @@
 #include <time.h>
 #include "functions.c"
 
-void MdTotal(struct MainDish* md, const float prices[]) {
+void MdTotal(struct MainDish* md, const float prices[]){
     md->mdtotal = 0.0;
     md->mdtotal += md->amt1 * prices[0];
     md->mdtotal += md->amt2 * prices[1];
@@ -14,11 +14,11 @@ void MdTotal(struct MainDish* md, const float prices[]) {
 
 void MaindishAmt(struct MainDish* md, const float prices[]){
     int choice;
-    while (true) {
+    while (true){
         text(3);
         MDCurrentDisp(md);
         choice = read_integer_in_range("\nOption: ",1,6);
-        switch (choice) {
+        switch (choice){
             case 1:
                 md->amt1 = read_integer_in_range("\nPlease enter amount: ", 0, 25);
                 break;
@@ -56,13 +56,11 @@ void SdTotal(struct Sides* sd, const float prices[]){
 
 void SideDishAmt(struct Sides* sd, const float prices[]){
     int choice;
-    while (true)
-    {
+    while (true){
         text(4);
         SDCurrentDisp(sd);
         choice=read_integer_in_range("\nOption: ",1,6);
-        switch (choice)
-        {
+        switch (choice){
         case 1:
             sd->amt1=read_integer_in_range("\nPlease enter amount: ",0,25);
             break;
@@ -99,13 +97,11 @@ void DTotal(struct Drinks* dk, const float prices[]){
 
 void DrinkAmt(struct Drinks* dk, const float prices[]){
     int choice,choice2;
-    while (true)
-    {
+    while (true){
         text(5);
         DrinkCurrentDisp(dk);
         choice=read_integer_in_range("\nOption: ", 1,4);
-        switch (choice)
-        {
+        switch (choice){
         case 1:
             text(6);
             choice2=read_integer_in_range("\nOption: ", 1,4);
@@ -287,22 +283,19 @@ void BAmt(struct Burger* B, const float prices[]){
 
 void MenuTotal(struct MainDish* md, struct Sides* sd, struct Drinks* dk, struct Burger* B){
     float MenuTotal= md->mdtotal + sd->sdtotal + dk->dtotal + B->Btotal;
-    printf("Your total is: %0.2f RM", MenuTotal);
+    printf("\nYour total is: %0.2f RM", MenuTotal);
 }
 
-void Recipt(struct MainDish* md, struct Sides* sd, struct Drinks* dk, struct Burger* B)
-{
+void Recipt(struct MainDish* md, struct Sides* sd, struct Drinks* dk, struct Burger* B){
     time_t t = time(NULL);
     struct tm *tm_info = localtime(&t);
     char filename[255];
     strftime(filename, sizeof(filename), "receipt_%Y%m%d%H%M%S.txt", tm_info);
-
     FILE *file = fopen(filename, "w");
     
     float MenuTotal= md->mdtotal + sd->sdtotal + dk->dtotal + B->Btotal;
 
-    if (file == NULL)
-    {
+    if (file == NULL){
         printf("\nError with opening file");
         return;
     }
@@ -333,39 +326,5 @@ void Recipt(struct MainDish* md, struct Sides* sd, struct Drinks* dk, struct Bur
     fprintf(file, "\n\nTotal cost: %0.2f RM", MenuTotal);
 
     fclose(file);
-    printf("\nRecipt Generated and saved to %s", filename);
-    
+    printf("\nRecipt Generated and saved to %s", filename);   
 }
-
-// void main()
-// {
-//     struct MainDish md = {0, 0, 0, 0, 0};
-//     struct Sides sd = {0, 0, 0, 0, 0};
-//     struct Drinks dk = {0, 0, 0, 0, 0, 0};
-//     struct Burger B = {0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-    
-//     float mdprices[] = {15.0, 14.50, 13.00, 22.0, 12.0};
-//     float sdprices[] = {8.00, 6.00, 3.00, 5.00, 2.50};
-//     float dkprices[] = {3.00, 0, 2.50};
-//     float Bprices[] = {1.00, 1.50, 2.50, 1.00, 0.5, 0.0};
-
-//     MaindishAmt(&md, mdprices);
-//     SideDishAmt(&sd, sdprices);
-//     DrinkAmt(&dk, dkprices);
-//     BAmt(&B, Bprices);
-    
-
-//   // Printing the amounts for demonstration
-//     printf("\nAmounts: %d %d %d %d %d", md.amt1, md.amt2, md.amt3, md.amt4, md.amt5);
-//     printf("\nAmounts: %d %d %d %d %d", sd.amt1, sd.amt2, sd.amt3, sd.amt4, sd.amt5);
-//     printf("\nAmounts: %d %d %d %d %d %d", dk.amt1, dk.amt2, dk.amt3, dk.amt4, dk.amt5,dk.amt6);
-//     printf("\nAmounts: %d %d %d, %d %d %d, %d %d %d, %d %d %d", B.BeefAmt, B.ChknAmt, B.FishAmt, B.BEA1, B.BEA2, B.BEA3, B.CKE1, B.CKE2, B.CKE3, B.FEA1, B.FEA2, B.FEA3);
-
-//     // Print the total cost stored in the struct for demonstration
-//     printf("\nTotal cost of the main dish: $%.2f\n", md.mdtotal);
-//     printf("\nTotal cost of the side dish: $%.2f\n", sd.sdtotal);
-//     printf("\nTotal cost of the drinks: $%.2f\n",dk.dtotal);
-//     printf("\nTotal cost of the burger: $%.2f\n", B.Btotal);
-
-//     MenuTotal(&md, &sd, &dk, &B);
-// }

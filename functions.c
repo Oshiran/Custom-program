@@ -132,7 +132,7 @@ void text(int choice){
 		printf("\nReturning to Burger Selection");
 		break;
 	case 15:
-		printf("\nThank you for using Alison Services");
+		printf("\n\nThank you for using Alison Services");
     	printf("\nHave a good day!");
 		break;
 	default:
