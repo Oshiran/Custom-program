@@ -45,7 +45,7 @@ void main ()
                     break;
                 case 5:
                     MenuTotal(&md, &sd, &dk, &B);
-                    //! Recepit function
+                    Recipt(&md, &sd, &dk, &B);
                     status2=false;
                     status=false;
                     break;

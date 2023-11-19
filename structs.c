@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <time.h>
 #include "functions.c"
 
 void MdTotal(struct MainDish* md, const float prices[]) {
@@ -286,7 +287,54 @@ void BAmt(struct Burger* B, const float prices[]){
 
 void MenuTotal(struct MainDish* md, struct Sides* sd, struct Drinks* dk, struct Burger* B){
     float MenuTotal= md->mdtotal + sd->sdtotal + dk->dtotal + B->Btotal;
-    printf("Your total is: $%0.2f", MenuTotal);
+    printf("Your total is: %0.2f RM", MenuTotal);
+}
+
+void Recipt(struct MainDish* md, struct Sides* sd, struct Drinks* dk, struct Burger* B)
+{
+    time_t t = time(NULL);
+    struct tm *tm_info = localtime(&t);
+    char filename[255];
+    strftime(filename, sizeof(filename), "receipt_%Y%m%d%H%M%S.txt", tm_info);
+
+    FILE *file = fopen(filename, "w");
+    
+    float MenuTotal= md->mdtotal + sd->sdtotal + dk->dtotal + B->Btotal;
+
+    if (file == NULL)
+    {
+        printf("\nError with opening file");
+        return;
+    }
+
+    fprintf(file, "\nRecipt Date and Time: %s", asctime(tm_info));
+
+    fprintf(file, "\n\nMain Dish amount:");
+    fprintf(file, "\nSpare Ribs: %d \nSpaghetti Bolognese: %d \nFish & Chip: %d \nPepporoni Pizza: %d \nMac & Cheese %d", md->amt1, md->amt2, md->amt3, md->amt4, md->amt5);
+    fprintf(file, "\n\n Main Dish Total: %0.2f RM", md->mdtotal);
+
+    fprintf(file, "\n\nBurger amount:");
+    fprintf(file, "\nBeef Burger: %d \nChicken Burger: %d \nFish Burger: %d", B->BeefAmt, B->ChknAmt,B->FishAmt);
+
+    fprintf(file, "\n\nBeef Burger edits \nPatty: %d \nCheese: %d \nPickle: %d", B->BEA1, B->BEA2, B->BEA3);
+    fprintf(file, "\nChiken Burger edits \nPatty: %d \nCheese: %d \nPickle: %d", B->CKE1, B->CKE2, B->CKE3);
+    fprintf(file, "\nFish Burger edits \nPatty: %d \nCheese: %d \nPickle: %d", B->FEA1, B->FEA2, B->FEA3);
+
+    fprintf(file, "\n\nBurger Total: %0.2f RM", B->Btotal);
+
+    fprintf(file, "\n\nSide Dish amount:");
+    fprintf(file, "\nMashed Potato: %d \nOnion Rings: %d \nGarlic Bread: %d \nButtered Corn: %d \nFrench Fries: %d", sd->amt1,sd->amt2, sd->amt3, sd->amt4, sd->amt5);
+    fprintf(file, "\n\nSide Dish Total: %0.2f RM", sd->sdtotal);
+
+    fprintf(file, "\n\nDrinks amount:");
+    fprintf(file, "\nCoke: %d \nSprite: %d \n7up: %d \nWater: %d \nIce Tea: %d \n", dk->amt1, dk->amt2, dk->amt3 , dk->amt5, dk->amt6);
+    fprintf(file, "\n\nDrinks Total: %0.2f RM", dk->dtotal);
+
+    fprintf(file, "\n\nTotal cost: %0.2f RM", MenuTotal);
+
+    fclose(file);
+    printf("\nRecipt Generated and saved to %s", filename);
+    
 }
 
 // void main()
