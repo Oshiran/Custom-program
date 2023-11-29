@@ -1,12 +1,12 @@
 # Alison Restaurant (Self Order Kiosk System)
 
-<a href="https://github.com/Oshiran/Custom-Program/graphs/contributors">
+<a href="https://github.com/Oshiran/Custom-program/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Oshiran/Custom-Program" />
 </a>
 
-![downloads](https://img.shields.io/github/downloads/Oshiran/Custom-Program/total?style=flat)
-![issues](https://img.shields.io/github/issues/Oshiran/Custom-Program?style=flat)
-![issues-pr](https://img.shields.io/github/issues-pr/Oshiran/Custom-Program?style=flat)
+![downloads](https://img.shields.io/github/downloads/Oshiran/Custom-program/total?style=flat)
+![issues](https://img.shields.io/github/issues/Oshiran/Custom-program?style=flat)
+![issues-pr](https://img.shields.io/github/issues-pr/Oshiran/Custom-program?style=flat)
 
 ## Table of Contents
 
@@ -32,7 +32,7 @@ To run the code in this project you will need:
 You'll need to clone the repository as below in order to run the notebooks.
 
 ```
-git clone https://github.com/Oshiran/Custom-Program.git
+git clone https://github.com/Oshiran/Custom-program.git
 ```
 Download the following:
 
@@ -45,7 +45,7 @@ Proceed as below:
 
 ```
 cd /Custom-Program
-git clone https://github.com/Oshiran/Custom-Program.git
+git clone https://github.com/Oshiran/Custom-program.git
 ```
 2) Install MinGW
     Install based on your operating system
