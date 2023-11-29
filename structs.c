@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <time.h>
+#include <string.h>
+#include <stdlib.h>
 #include "functions.c"
 
 void MdTotal(struct MainDish* md, const float prices[]){
@@ -327,4 +329,28 @@ void Recipt(struct MainDish* md, struct Sides* sd, struct Drinks* dk, struct Bur
 
     fclose(file);
     printf("\nRecipt Generated and saved to %s", filename);   
+}
+
+void readTextFile() {
+    const int MAX_FILENAME_LENGTH = 256;
+    char filename[MAX_FILENAME_LENGTH];
+    char buffer[256];
+
+    printf("Enter file name: ");
+    scanf("%s", filename);
+
+    while (getchar() != '\n');
+
+    FILE *file = fopen(filename, "r");
+
+    if (file == NULL) {
+        perror("Error opening file");
+        return;
+    }
+
+    while (fgets(buffer, sizeof(buffer), file) != NULL) {
+        printf("%s", buffer);
+    }
+
+    fclose(file);
 }

@@ -60,7 +60,8 @@ void text(int choice){
 				"\n[2] Burger"
 				"\n[3] Sides" 
 				"\n[4] Drinks"
-				"\n[5] Done with order");
+				"\n[5] Read Recipt"
+				"\n[6] Done with order");
 		break;
 	case 3:
 		printf( "\n\nPlease pick an option:"

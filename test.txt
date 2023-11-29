@@ -1,0 +1,53 @@
+
+Recipt Date and Time: Sun Nov 19 18:03:42 2023
+
+
+Main Dish amount:
+Spare Ribs: 10 
+Spaghetti Bolognese: 0 
+Fish & Chip: 0 
+Pepporoni Pizza: 0 
+Mac & Cheese 0
+
+ Main Dish Total: 150.00 RM
+
+Burger amount:
+Beef Burger: 2 
+Chicken Burger: 0 
+Fish Burger: 0
+
+Beef Burger edits 
+Patty: 1 
+Cheese: 2 
+Pickle: 1
+Chiken Burger edits 
+Patty: 1 
+Cheese: 1 
+Pickle: 1
+Fish Burger edits 
+Patty: 1 
+Cheese: 1 
+Pickle: 1
+
+Burger Total: 6.00 RM
+
+Side Dish amount:
+Mashed Potato: 0 
+Onion Rings: 0 
+Garlic Bread: 0 
+Buttered Corn: 0 
+French Fries: 2
+
+Side Dish Total: 5.00 RM
+
+Drinks amount:
+Coke: 2 
+Sprite: 0 
+7up: 0 
+Water: 10 
+Ice Tea: 0 
+
+
+Drinks Total: 6.00 RM
+
+Total cost: 167.00 RM
