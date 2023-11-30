@@ -24,7 +24,7 @@ void main ()
         case 1:
             while (status2){
                 text(2);
-                option2 = read_integer_in_range ("\nOption: ",1,6);
+                option2 = read_integer_in_range ("\nOption: ",1,7);
                 switch (option2){
                 case 1:
                     MaindishAmt(&md, mdprices);
@@ -44,6 +44,8 @@ void main ()
                 case 6:
                     MenuTotal(&md, &sd, &dk, &B);
                     Recipt(&md, &sd, &dk, &B);
+                    break;
+                case 7:
                     status2=false;
                     status=false;
                     break;

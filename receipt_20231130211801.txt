@@ -1,5 +1,5 @@
 
-Recipt Date and Time: Sun Nov 19 18:11:05 2023
+Recipt Date and Time: Thu Nov 30 21:18:01 2023
 
 
 Main Dish amount:
@@ -12,42 +12,35 @@ Mac & Cheese 0
  Main Dish Total: 150.00 RM
 
 Burger amount:
-Beef Burger: 0 
-Chicken Burger: 0 
+Beef Burger: 5 
+Chicken Burger: 3 
 Fish Burger: 0
-
 Beef Burger edits 
-Patty: 1 
-Cheese: 1 
-Pickle: 1
-Chiken Burger edits 
-Patty: 1 
-Cheese: 1 
-Pickle: 1
+Patty: 1 	Cheese: 1 	Pickle: 1
+Chicken Burger edits 
+Patty: 1 	Cheese: 1 	Pickle: 1
 Fish Burger edits 
-Patty: 1 
-Cheese: 1 
-Pickle: 1
+Patty: 1 	Cheese: 1 	Pickle: 1
 
-Burger Total: 0.00 RM
+Burger Total: 21.50 RM
 
 Side Dish amount:
-Mashed Potato: 0 
+Mashed Potato: 10 
 Onion Rings: 0 
 Garlic Bread: 0 
 Buttered Corn: 0 
 French Fries: 0
 
-Side Dish Total: 0.00 RM
+Side Dish Total: 80.00 RM
 
 Drinks amount:
-Coke: 0 
+Coke: 10 
 Sprite: 0 
 7up: 0 
 Water: 0 
 Ice Tea: 0 
 
 
-Drinks Total: 0.00 RM
+Drinks Total: 30.00 RM
 
-Total cost: 150.00 RM
+Total cost: 281.50 RM

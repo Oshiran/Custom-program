@@ -50,7 +50,8 @@ int read_integer_in_range(const char *prompt, int min, int max){
 void text(int choice){
 	switch (choice){
 	case 1:
-		printf( "\nStart?"
+		printf( "\nWelcome to Alison's Restaurant Self Ordering system"
+				"\nStart?"
 				"\n[1] Yes" 
 				"\n[2] No");
 		break;
@@ -61,7 +62,8 @@ void text(int choice){
 				"\n[3] Sides" 
 				"\n[4] Drinks"
 				"\n[5] Read Recipt"
-				"\n[6] Done with order");
+				"\n[6] Done with order"
+				"\n[7] Exit (Without Saving)");
 		break;
 	case 3:
 		printf( "\n\nPlease pick an option:"
@@ -117,7 +119,7 @@ void text(int choice){
 	case 10:
 		printf( "\n\nPlease pick the following option"
 				"\n[1] Patty\t[1.00RM]"
-				"\n[2] Cheese\t[0.5RM]"
+				"\n[2] Cheese\t[0.50RM]"
 				"\n[3] Pickle\t[0.00RM]"
 				"\n[4] Back");
 	case 11:
@@ -172,4 +174,3 @@ void BCurrentDisp2(const struct Burger* B, int choice){
 		break;
 	}
 }
-

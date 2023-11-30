@@ -22,19 +22,19 @@ void MaindishAmt(struct MainDish* md, const float prices[]){
         choice = read_integer_in_range("\nOption: ",1,6);
         switch (choice){
             case 1:
-                md->amt1 = read_integer_in_range("\nPlease enter amount: ", 0, 25);
+                md->amt1 = read_integer_in_range("\nPlease enter amount: ",0,25);
                 break;
             case 2:
-                md->amt2 = read_integer_in_range("\nPlease enter amount: ", 0, 25);
+                md->amt2 = read_integer_in_range("\nPlease enter amount: ",0,25);
                 break;
             case 3:
-                md->amt3 = read_integer_in_range("\nPlease enter amount: ", 0, 25);
+                md->amt3 = read_integer_in_range("\nPlease enter amount: ",0,25);
                 break;
             case 4:
-                md->amt4 = read_integer_in_range("\nPlease enter amount: ", 0, 25);
+                md->amt4 = read_integer_in_range("\nPlease enter amount: ",0,25);
                 break;
             case 5:
-                md->amt5 = read_integer_in_range("\nPlease enter amount: ", 0, 25);
+                md->amt5 = read_integer_in_range("\nPlease enter amount: ",0,25);
                 break;
             case 6:
                 text(11);
@@ -310,11 +310,9 @@ void Recipt(struct MainDish* md, struct Sides* sd, struct Drinks* dk, struct Bur
 
     fprintf(file, "\n\nBurger amount:");
     fprintf(file, "\nBeef Burger: %d \nChicken Burger: %d \nFish Burger: %d", B->BeefAmt, B->ChknAmt,B->FishAmt);
-
-    fprintf(file, "\n\nBeef Burger edits \nPatty: %d \nCheese: %d \nPickle: %d", B->BEA1, B->BEA2, B->BEA3);
-    fprintf(file, "\nChiken Burger edits \nPatty: %d \nCheese: %d \nPickle: %d", B->CKE1, B->CKE2, B->CKE3);
-    fprintf(file, "\nFish Burger edits \nPatty: %d \nCheese: %d \nPickle: %d", B->FEA1, B->FEA2, B->FEA3);
-
+    fprintf(file, "\nBeef Burger edits \nPatty: %d \tCheese: %d \tPickle: %d", B->BEA1, B->BEA2, B->BEA3);
+    fprintf(file, "\nChicken Burger edits \nPatty: %d \tCheese: %d \tPickle: %d", B->CKE1, B->CKE2, B->CKE3);
+    fprintf(file, "\nFish Burger edits \nPatty: %d \tCheese: %d \tPickle: %d", B->FEA1, B->FEA2, B->FEA3);
     fprintf(file, "\n\nBurger Total: %0.2f RM", B->Btotal);
 
     fprintf(file, "\n\nSide Dish amount:");
@@ -343,12 +341,12 @@ void readTextFile() {
 
     FILE *file = fopen(filename, "r");
 
-    if (file == NULL) {
+    if (file == NULL){
         perror("Error opening file");
         return;
     }
 
-    while (fgets(buffer, sizeof(buffer), file) != NULL) {
+    while (fgets(buffer, sizeof(buffer), file) != NULL){
         printf("%s", buffer);
     }
 
