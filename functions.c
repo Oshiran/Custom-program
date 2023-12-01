@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+//! All Concerning structs
 struct MainDish{
     int amt1, amt2, amt3, amt4, amt5;
     float mdtotal;
@@ -24,10 +25,12 @@ struct Burger{
     float Btotal;
 };
 
+//! Clear Buffer function
 void flush(){
 	while ((getchar()) != '\n');
 }
 
+//! Integer Validation Check
 int read_integer_in_range(const char *prompt, int min, int max){
 	int input;
 	bool status = true;
@@ -46,6 +49,8 @@ int read_integer_in_range(const char *prompt, int min, int max){
 	}
 	return input;
 }
+
+//! All Text related functions ranging from menu's to error messages
 
 void text(int choice){
 	switch (choice){
@@ -143,22 +148,27 @@ void text(int choice){
 	}
 }
 
+//! Dynamic Main Dish Display
 void MDCurrentDisp(const struct MainDish* md){
     printf("\n\nCurrent Amount:\n[1]-> %d  [2]-> %d [3]-> %d [4]-> %d [5]-> %d", md->amt1, md->amt2, md->amt3, md->amt4, md->amt5);
 }
 
+//! Dynamic Side Dish Display
 void SDCurrentDisp(const struct Sides* sd){
 	printf("\n\nCurrent Amount:\n[1]-> %d  [2]-> %d [3]-> %d [4]-> %d [5]-> %d", sd->amt1, sd->amt2, sd->amt3, sd->amt4, sd->amt5);
 }
 
+//! Dyanmic Drinks Display
 void DrinkCurrentDisp(const struct Drinks* dk){
 	printf("\n\nCurrent Amount:\n[1.1]-> %d  [1.2]-> %d [1.3]-> %d [2]-> %d [3]-> %d", dk->amt1, dk->amt2, dk->amt3, dk->amt5, dk->amt6);
 }
 
+//! Dynamic Burger Display (Only the burger amount)
 void BCurrentDisp1(const struct Burger* B){
 	printf("\n\nCurrent Amount:\n[1]-> %d  [2]-> %d [3]-> %d", B->BeefAmt, B->ChknAmt, B->FishAmt);
 }
 
+//! Dyanmic Burger Display (Focused on the Customization of the burger)
 void BCurrentDisp2(const struct Burger* B, int choice){
 	switch (choice){
 	case 1:

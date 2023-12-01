@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "functions.c"
 
+//! Finds Main Dish total price by multiplying amount into indiviual amount price
 void MdTotal(struct MainDish* md, const float prices[]){
     md->mdtotal = 0.0;
     md->mdtotal += md->amt1 * prices[0];
@@ -14,6 +15,8 @@ void MdTotal(struct MainDish* md, const float prices[]){
     md->mdtotal += md->amt5 * prices[4];
 }
 
+//! Main Dish function that allows user to choose the Main Dish option and enter amount
+//! Validation Check is in place to limit the amount from 0 to 25
 void MaindishAmt(struct MainDish* md, const float prices[]){
     int choice;
     while (true){
@@ -37,6 +40,7 @@ void MaindishAmt(struct MainDish* md, const float prices[]){
                 md->amt5 = read_integer_in_range("\nPlease enter amount: ",0,25);
                 break;
             case 6:
+                //! Return message & Calls the MdTotal function
                 text(11);
                 MdTotal(md, prices);
                 return;
@@ -47,6 +51,7 @@ void MaindishAmt(struct MainDish* md, const float prices[]){
     }
 }
 
+//! Finds Side Dish total price by multiplying amount into indiviual amount price
 void SdTotal(struct Sides* sd, const float prices[]){
     sd->sdtotal = 0.0;
     sd->sdtotal += sd->amt1 * prices[0];
@@ -56,6 +61,8 @@ void SdTotal(struct Sides* sd, const float prices[]){
     sd->sdtotal += sd->amt5 * prices[4];
 }
 
+//! Side Dish function that allows user to choose the Side Dish option and enter amount
+//! Validation Check is in place to limit the amount from 0 to 25
 void SideDishAmt(struct Sides* sd, const float prices[]){
     int choice;
     while (true){
@@ -79,6 +86,7 @@ void SideDishAmt(struct Sides* sd, const float prices[]){
             sd->amt5=read_integer_in_range("\nPlease enter amount: ",0,25);
             break;
         case 6:
+            //! Return message & Calls the SdTotal function
             text(11);
             SdTotal(sd, prices);
             return;
@@ -89,6 +97,8 @@ void SideDishAmt(struct Sides* sd, const float prices[]){
     }
 }
 
+//! Finds Drinks total price by multiplying amount into indiviual amount price
+//* In this case, amt1 to 3 have the same price, thus amount 4 is the subtotal
 void DTotal(struct Drinks* dk, const float prices[]){
     dk->amt4= (dk->amt1)+(dk->amt2)+(dk->amt3);
     dk->dtotal =0.0;
@@ -97,6 +107,8 @@ void DTotal(struct Drinks* dk, const float prices[]){
     dk->dtotal += dk->amt6 * prices[2];
 }
 
+//! Side Dish function that allows user to choose the Side Dish option and enter amount
+//! Validation Check is in place to limit the amount from 0 to 25
 void DrinkAmt(struct Drinks* dk, const float prices[]){
     int choice,choice2;
     while (true){
@@ -132,6 +144,7 @@ void DrinkAmt(struct Drinks* dk, const float prices[]){
             dk->amt6=read_integer_in_range("Please enter amount: ",0,25);
             break;
         case 4:
+            //! Return message & Calls the DTotal function
             text(11);
             DTotal(dk, prices);
             return;
@@ -142,6 +155,7 @@ void DrinkAmt(struct Drinks* dk, const float prices[]){
     }
 }
 
+//! Finds Drinks total price by multiplying amount into indiviual amount price
 void BTotal(struct Burger* B, const float price[]){
     B->Btotal = 0.0;
     B->Btotal += (B->BeefAmt != 0) ? (B->BeefAmt * price[0]) + (B->BeefAmt * ((B->BEA1 * price[3]) + (B->BEA2 * price[4]) + (B->BEA3 * price[5]))) : 0;
@@ -149,6 +163,10 @@ void BTotal(struct Burger* B, const float price[]){
     B->Btotal += (B->FishAmt != 0) ? (B->FishAmt * price[2]) + (B->FishAmt * ((B->FEA1 * price[3]) + (B->FEA2 * price[4]) + (B->FEA3 * price[5]))) : 0;
 }
 
+//! Burger function that allows user to choose the Burger option and enter amount
+//! Validation Check is in place to limit the amount from 0 to 25
+//* Furthermore, an edit option for each burger is in place to allow customization
+//* Validation Check is in place to limit the amount from 0 to 5
 void BAmt(struct Burger* B, const float prices[]){
     int choice, choice2, choice3, choice4;
     while (true){
@@ -166,6 +184,7 @@ void BAmt(struct Burger* B, const float prices[]){
             B->FishAmt = read_integer_in_range("\nPlease enter amount: ",0,25);
             break;
         case 4:
+            //! Return message & Calls the BTotal function
             text(11);
             BTotal(B, prices);
             return;
@@ -173,17 +192,21 @@ void BAmt(struct Burger* B, const float prices[]){
             text(12);
             break;
         }
+        //! Edit Burger option
         text(8);
         choice2=read_integer_in_range("\nOption: ",1,2);
         if (choice2 == 1){
             bool status= true;
             while(status){
+                //! Edit Burger Dialogue
+                //* Validation Check is in place to ensure that the burger has been ordered first before it can be edited
                 text(9);
                 BCurrentDisp1(B);
                 choice3 = read_integer_in_range("\nOption: ",1,4);
                 switch (choice3){
                 case 1:
                     if (B->BeefAmt > 0){
+                        //! Beef Burger Edit Menu
                         text(10);
                         BCurrentDisp2(B,1);
                         choice4 = read_integer_in_range("\nOption: ",1,4);
@@ -211,6 +234,7 @@ void BAmt(struct Burger* B, const float prices[]){
                     break;
                 case 2:
                     if (B->ChknAmt > 0){
+                        //! Chicken Burger Edit Menu
                         text(10);
                         BCurrentDisp2(B,2);
                         choice4 = read_integer_in_range("\nOption: ",1,4);
@@ -238,6 +262,7 @@ void BAmt(struct Burger* B, const float prices[]){
                     break;
                 case 3:
                     if (B->FishAmt > 0){
+                        //! Fish Burger Edit Menu
                         text(10);
                         BCurrentDisp2(B,3);
                         choice4 = read_integer_in_range("\nOption: ",1,4);
@@ -264,6 +289,7 @@ void BAmt(struct Burger* B, const float prices[]){
                     }
                     break;
                 case 4:
+                    //! Another Return message & Calls the BTotal function
                     text(14);
                     status=false;
                     break;
@@ -283,11 +309,14 @@ void BAmt(struct Burger* B, const float prices[]){
     }
 }
 
+//! Using all the totals from their respective structs, sums to find the total
 void MenuTotal(struct MainDish* md, struct Sides* sd, struct Drinks* dk, struct Burger* B){
     float MenuTotal= md->mdtotal + sd->sdtotal + dk->dtotal + B->Btotal;
     printf("\nYour total is: %0.2f RM", MenuTotal);
 }
 
+//! Receipt generation
+//* Filename made automatically using date and time imported from <time.h>
 void Recipt(struct MainDish* md, struct Sides* sd, struct Drinks* dk, struct Burger* B){
     time_t t = time(NULL);
     struct tm *tm_info = localtime(&t);
@@ -302,6 +331,7 @@ void Recipt(struct MainDish* md, struct Sides* sd, struct Drinks* dk, struct Bur
         return;
     }
 
+    //! Print to file
     fprintf(file, "\nRecipt Date and Time: %s", asctime(tm_info));
 
     fprintf(file, "\n\nMain Dish amount:");
@@ -329,11 +359,13 @@ void Recipt(struct MainDish* md, struct Sides* sd, struct Drinks* dk, struct Bur
     printf("\nRecipt Generated and saved to %s", filename);   
 }
 
+//! Read Receipt
 void readTextFile() {
     const int MAX_FILENAME_LENGTH = 256;
     char filename[MAX_FILENAME_LENGTH];
     char buffer[256];
 
+    //* Enter file name and validates if the file exists
     printf("Enter file name: ");
     scanf("%s", filename);
 
